@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Quote
+{% endblock %}
+
+{% block body %}
+  <div class="d-flex justify-content-center text-center mt-3">
+    <form class="form-signin" action="/quote" method="post">
+      <br>
+      <div class="mb-3">
+        <label for="symbol" class="form-label">Symbol</label>
+        <input type="text" autocomplete="off" class="form-control" name="symbol" id="symbol">
+      </div>
+      <button type="submit" class="btn btn-primary">Quote</button>
+    </form>
+  </div>
+
+{% endblock %}

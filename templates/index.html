@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-md-2 mx-4">
+
+        <div class="col-12">
+
+          <div class="row my-3">
+            <span class="mb-3 fs-4 text-secondary">NET WORTH</span>
+            <br>
+            <span class="fs-2 fw-bold">Rs. {{ grand_total }}</span>
+          </div>
+
+          <div class="row my-5">
+            <div class="col">
+              <span class="mb-3 fs-4 text-secondary">TODAY'S CHANGE</span>
+              <br>
+              <span class="fs-2 fw-bold" style={{color}}>Rs. {{change}}</span>
+              <br>
+              <span class="fs-2" style={{color}}>({{pchange}}%)</span>
+            </div>
+            <div class="col">
+              <span class="mb-3 fs-4 text-secondary">OVERALL CHANGE</span>
+              <br>
+              <span class="fs-2 fw-bold" style={{overall_change.color}}>Rs. {{overall_change.change}}</span>
+              <br>
+              <span class="fs-2" style={{overall_change.color}}>({{overall_change.percentage}}%)</span>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <span class="mb-3 fs-4 text-secondary">CASH IN HAND</span>
+            <br>
+            <span class="fs-2 fw-bold">Rs. {{balance}}</span>
+          </div>
+
+        </div>
+
+        <div class="col-12 table-responsive">
+          <table class="table table-borderless mt-3">
+              <thead>
+                  <tr>
+                      <th scope="col">Symbol</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Shares</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Total</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for stock in shares %}
+                      <tr>
+                          <td>{{ stock["Symbol"] }}</td>
+                          <td>{{ stock["Name"] }}</td>
+                          <td>{{ stock["Shares"] }}</td>
+                          <td>{{ stock["Price"] }}</td>
+                          <td>{{ stock["Total"] }}</td>
+                      </tr>
+                  {% endfor %}
+                      <tr>
+                          <td>CASH</td>
+                          <td colspan="3"></td>
+                          <td>{{ balance }}</td>
+                      </tr>
+                  </tbody>
+                  <tfoot>
+                      <tr>
+                          <td colspan=4></td>
+                          <td><strong>{{ grand_total }}</strong></td>
+                      </tr>
+                  </tfoot>
+          </table>
+        </div>
+
+      </div>
+
+   </div>
+{% endblock %}

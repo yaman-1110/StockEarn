@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Sell
+{% endblock %}
+
+{% block body %}
+  <div class="d-flex justify-content-center text-center mt-3">
+    <form class="form-signin" action="/sell" method="post">
+      <br>
+      <div class="mb-3">
+        <label for="symbol" class="form-label">Symbol</label>
+        <select class="form-control custom-select" name="symbol" id="symbol" width="250">
+            {% for i in shares %}
+                <option>{{ i }}</option>
+            {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input type="text" autocomplete="off" class="form-control" name="quantity" id="quantity">
+      </div>
+      <button type="submit" class="btn btn-primary">Sell</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Buy
+{% endblock %}
+
+{% block body %}
+  <div class="d-flex justify-content-center text-center mt-3">
+    <form class="form-signin" action="/buy" method="post">
+      <br>
+      <div class="mb-3">
+        <label for="symbol" class="form-label">Symbol</label>
+        <input type="text" autocomplete="off" class="form-control" name="symbol" id="symbol">
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input type="text" autocomplete="off" class="form-control" name="quantity" id="quantity">
+      </div>
+      <button type="submit" class="btn btn-primary">Buy</button>
+    </form>
+  </div>
+{% endblock %}
